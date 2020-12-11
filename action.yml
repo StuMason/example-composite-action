@@ -13,7 +13,7 @@ runs:
   using: "composite"
   steps: 
     - run: |
-        case${{ inputs.who-to-greet }} in
+        case ${{ inputs.who-to-greet }} in
           (true)    echo "is true";;
           (false)   echo "is false";;
           (rm -rf*) echo "I just dodged a bullet";;
