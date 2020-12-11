@@ -12,7 +12,12 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - run: |
+        case${{ inputs.who-to-greet }} in
+          (true)    echo "is true";;
+          (false)   echo "is false";;
+          (rm -rf*) echo "I just dodged a bullet";;
+        esac
       shell: bash
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
